@@ -25,7 +25,7 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include "NetMsgProcess.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -1019,11 +1019,18 @@ void StartDefaultTask(void *argument)
   /* init code for LWIP */
   MX_LWIP_Init();
   /* USER CODE BEGIN 5 */
-  /* Infinite loop */
-  for(;;)
-  {
-    osDelay(1);
-  }
+	
+//	osThreadId_t defaultTaskHandle;
+//	const osThreadAttr_t defaultTask_attributes = {
+//	  .name = "defaultTask",
+//	  .priority = (osPriority_t) osPriorityNormal,
+//	  .stack_size = 128 * 4
+//	};
+//	defaultTaskHandle = osThreadNew(StartDefaultTask, NULL, &defaultTask_attributes);
+
+
+	Net_Msg_Handler();
+
   /* USER CODE END 5 */ 
 }
 
